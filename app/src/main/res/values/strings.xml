@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DrHomeAid</string>
+    <string name="searchable">Searchable</string>
+    <string name="menu_search">Search</string>
 </resources>

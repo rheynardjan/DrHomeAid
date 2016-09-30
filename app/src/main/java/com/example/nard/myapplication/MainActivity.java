@@ -1,16 +1,25 @@
 package com.example.nard.myapplication;
 
+import android.app.SearchManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.example.nard.myapplication.Fragments.Categories;
+import com.example.nard.myapplication.Fragments.Favourites;
+import com.example.nard.myapplication.Fragments.Popular;
 
 public class MainActivity extends AppCompatActivity{
     DrawerLayout mDrawerLayout;
@@ -28,7 +37,7 @@ public class MainActivity extends AppCompatActivity{
          */
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        mNavigationView = (NavigationView) findViewById(R.id.shitstuff) ;
+        mNavigationView = (NavigationView) findViewById(R.id.drawerlist) ;
 
         /**
          * Lets inflate the very first fragment
@@ -60,6 +69,21 @@ public class MainActivity extends AppCompatActivity{
                     xfragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
                 }
 
+                if (menuItem.getItemId() == R.id.nav_item_toCategories) {
+                    FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
+                    xfragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
+
+                }
+                if (menuItem.getItemId() == R.id.nav_item_toPopular) {
+                    FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
+                    xfragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
+
+                }
+                if (menuItem.getItemId() == R.id.nav_item_toFavourites) {
+                    FragmentTransaction xfragmentTransaction = mFragmentManager.beginTransaction();
+                    xfragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
+                }
+
                 return false;
             }
 
@@ -77,6 +101,16 @@ public class MainActivity extends AppCompatActivity{
 
         mDrawerToggle.syncState();
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.drawermenu, menu);
+        // Retrieve the SearchView and plug it into SearchManager
+        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search));
+        SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        return true;
     }
 
     boolean doubleBackToExitPressedOnce = false;

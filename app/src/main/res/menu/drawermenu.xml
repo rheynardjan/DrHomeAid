@@ -4,26 +4,36 @@
 
 
     <item android:title="My Profile"
-        android:id="@+id/nav_item_myProfile" />
+        android:id="@+id/nav_item_myProfile"
+        android:icon="@drawable/ic_account_circle_black_24dp"/>
 
     <item android:title="Inbox"
-        android:id="@+id/nav_item_inbox" />
+        android:id="@+id/nav_item_inbox"
+        android:icon="@drawable/ic_inbox_black_24dp"/>
 
     <item android:title="Shortcuts">
         <menu>
             <item
-                android:title="Categories" />
+                android:title="Categories"
+                android:id="@+id/nav_item_toCategories"
+                android:icon="@drawable/ic_arrow_forward_black_24dp"/>
             <item
-                android:title="Popular" />
+                android:title="Popular"
+                android:id="@+id/nav_item_toPopular"
+                android:icon="@drawable/ic_arrow_forward_black_24dp"/>
             <item
-                android:title="Favourites" />
+                android:title="Favourites"
+                android:id="@+id/nav_item_toFavourites"
+                android:icon="@drawable/ic_arrow_forward_black_24dp"/>
         </menu>
     </item>
 
     <group android:id="@+id/group_settings_id">
 
-        <item android:title="Settings" />
-        <item android:title="About" />
+        <item android:title="Settings"
+            android:icon="@drawable/ic_settings_black_24dp"/>
+        <item android:title="About"
+            android:icon="@drawable/ic_people_black_24dp"/>
     </group>
 
 
