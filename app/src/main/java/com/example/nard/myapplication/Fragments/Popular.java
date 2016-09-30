@@ -34,11 +34,6 @@ public class Popular extends Fragment {
 
         ArrayList<Illness> illnesses = new ArrayList<>();
 
-        Illness illness = new Illness("Abcess");
-        illnesses.add(illness);
-
-        illness = new Illness("Acid Reflux");
-        illnesses.add(illness);
 
         return illnesses;
     }
