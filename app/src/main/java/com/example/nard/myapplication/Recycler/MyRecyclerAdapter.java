@@ -1,12 +1,17 @@
 package com.example.nard.myapplication.Recycler;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.nard.myapplication.Fragments.Favourites;
+import com.example.nard.myapplication.IllnessActivity;
+import com.example.nard.myapplication.Login;
 import com.example.nard.myapplication.R;
 
 import java.util.ArrayList;
@@ -34,7 +39,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     //Bind date to views
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
         holder.nameText.setText(illness.get(position).getIllnessName());
 
         //Listener
@@ -42,7 +47,9 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyViewHolder> {
             @Override
             public void onItemClick(View v, int pos) {
 
+                Intent newIntent = new Intent(v.getContext(), IllnessActivity.class);
                 Toast.makeText(c, illness.get(pos).getIllnessName(), Toast.LENGTH_SHORT).show();
+                c.startActivity(newIntent);
             }
         });
     }
